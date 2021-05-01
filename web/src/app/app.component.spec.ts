@@ -19,12 +19,12 @@ describe('AppComponent', () => {
   ));
 
   const server = setupServer(
-    rest.get('/persons', (req, res, ctx) => {
+    rest.get('http://localhost:3000/persons', (req, res, ctx) => {
       return res(ctx.json(persons));
     }),
-    rest.post('/person', (req, res, ctx) => {
-      return res(ctx.body(''));
-    })
+    // rest.post('http://localhost:3000/person', (req, res, ctx) => {
+    //   return res(ctx.body(''));
+    // })
   );
 
   beforeAll(() => server.listen());

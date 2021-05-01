@@ -12,10 +12,10 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   addPerson(person: Person): Observable<void> {
-    return this.http.post<void>('/person', person);
+    return this.http.post<void>('http://localhost:3000/person', person);
   }
 
   getPersons(): Observable<Person[]> {
-    return this.http.get<Person[]>('/persons');
+    return this.http.get<Person[]>('http://localhost:3000/persons');
   }
 }
