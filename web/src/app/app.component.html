@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let user of users; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ user.firstname }}</td>
+        <td>{{ user.lastname }}</td>
+      </tr>
+    </tbody>
+</table>
+<td><input class="form-control" [(ngModel)]="newUser.firstname" ></td>
+<td><input class="form-control" [(ngModel)]="newUser.lastname"></td>
+<button type="submit" (click)="submit()" class="btn btn-primary" >Submit</button>
+<router-outlet></router-outlet>

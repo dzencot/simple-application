@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  web:
+    build: web
+    ports:
+      - "4200:4200"
+    depends_on:
+      - express-server
+  express-server:
+    build: express-server
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+  database:
+    image: "postgres"
+    ports:
+      - "7777:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - database:/tmp/testDB
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: testdb
+
+volumes:
+  database:
