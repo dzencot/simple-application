@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ApiService } from './api.service';;
-import { Observable } from 'rxjs';
+import { ApiService } from './api.service';
+
+import { Person } from './models/person';
 
 @Component({
   selector: 'app-root',
@@ -19,15 +20,9 @@ export class AppComponent {
     });
   }
 
-  submit() {
-    this.apiService.addPerson(this.newUser).subscribe((result) => {
-      this.users.push(this.newUser);
+  submit(): void {
+    this.apiService.addPerson(this.newUser).subscribe(() => {
       this.newUser = { firstname: '', lastname: '' };
     });
   }
 }
-
-interface Person {
-  firstname: string,
-  lastname: string,
-};

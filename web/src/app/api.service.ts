@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { Person } from './models/person';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -9,11 +11,11 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  addPerson(person: any): Observable<any> {
-    return this.http.post<any>('http://localhost:3000/person', person);
+  addPerson(person: Person): Observable<void> {
+    return this.http.post<void>('/person', person);
   }
 
-  getPersons(): Observable<any> {
-    return this.http.get<any>('http://localhost:3000/persons');
+  getPersons(): Observable<Person[]> {
+    return this.http.get<Person[]>('/persons');
   }
 }

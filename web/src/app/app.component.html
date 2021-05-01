@@ -14,7 +14,7 @@
       </tr>
     </tbody>
 </table>
-<td><input class="form-control" [(ngModel)]="newUser.firstname" ></td>
-<td><input class="form-control" [(ngModel)]="newUser.lastname"></td>
+<td><input aria-label="firstname" name="firstname" type="text" class="form-control" [(ngModel)]="newUser.firstname" ></td>
+<td><input aria-label="lastname" name="lastname" type="text" class="form-control" [(ngModel)]="newUser.lastname"></td>
 <button type="submit" (click)="submit()" class="btn btn-primary" >Submit</button>
 <router-outlet></router-outlet>
