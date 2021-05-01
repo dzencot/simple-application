@@ -27,3 +27,11 @@ compose-restart:
 
 compose-bash:
 	docker-compose express-server run bash
+
+install-web:
+	cd web && make install
+
+install-server:
+	cd express-server && make install
+
+install: install-web install-server
