@@ -11,10 +11,10 @@ import { AppComponent } from './app.component'
 import { AppModule } from './app.module';
 
 describe('AppComponent', () => {
-  const persons = new Array(10).fill(null).map(() => (
+  const persons = Array.from(Array(10).keys()).map((i) => (
     {
-      firstname: faker.name.firstName(),
-      lastname: faker.name.lastName(),
+      firstname: `${faker.name.firstName()}${i}`,
+      lastname: `${faker.name.lastName()}${i}`,
     }
   ));
 
