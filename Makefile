@@ -35,3 +35,9 @@ install-server:
 	cd express-server && make install
 
 install: install-web install-server
+
+lint:
+	cd web && make lint
+
+test:
+	cd web && make test
